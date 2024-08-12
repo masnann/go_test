@@ -1,0 +1,34 @@
+name: Run Tests with Coverage
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: '1.22.3'
+
+    - name: Run service tests
+      run: |
+        go test -coverprofile=coverage_handler.out ./handler/...
+        go test -coverprofile=coverage_service.out ./service/...
+
+    - name: Combine coverage profiles
+      run: |
+        tail -n +2 coverage_handler.out > coverage.out
+        tail -n +2 coverage_service.out >> coverage.out
+
+    - name: Generate coverage report
+      run: |
+        go tool cover -func=coverage.out | tee coverage.txt
+        go tool cover -html=coverage.out -o coverage.html
