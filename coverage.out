@@ -1,0 +1,9 @@
+mode: set
+test/handler/handler.go:12.11,16.2 1 0
+test/handler/handler.go:12.11,16.2 1 1
+test/handler/userHandler/userHandler.go:18.58,22.2 1 1
+test/handler/userHandler/userHandler.go:24.59,27.57 3 1
+test/handler/userHandler/userHandler.go:27.57,31.3 3 1
+test/handler/userHandler/userHandler.go:33.2,34.16 2 1
+test/handler/userHandler/userHandler.go:34.16,38.3 3 1
+test/handler/userHandler/userHandler.go:39.2,40.40 2 1

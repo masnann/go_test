@@ -1,4 +1,4 @@
-name: Run Tests with Coverage
+name: Run Tests with Coverage and Deploy
 
 on:
   push:
@@ -25,8 +25,7 @@ jobs:
 
     - name: Combine coverage profiles
       run: |
-        tail -n +2 coverage_handler.out > coverage.out
-        tail -n +2 coverage_service.out >> coverage.out
+        cat coverage_handler.out coverage_service.out | grep -v '^mode:' > coverage.out
 
     - name: Generate coverage report
       run: |
