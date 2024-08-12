@@ -26,11 +26,7 @@ jobs:
         go test -coverprofile=coverage_handler.out ./handler/...
         go test -coverprofile=coverage_service.out ./service/...
 
-    - name: Combine coverage profiles
-      run: |
-        cat coverage_handler.out coverage_service.out | grep -v '^mode:' > coverage.out
-
     - name: Generate coverage report
       run: |
-        go tool cover -func=coverage.out | tee coverage.txt
-        go tool cover -html=coverage.out -o coverage.html
+        go tool cover -func=coverage_handler.out
+        go tool cover -func=coverage_service.out

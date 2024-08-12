@@ -1,0 +1,7 @@
+mode: set
+test/service/service.go:13.11,18.2 1 0
+test/service/service.go:13.11,18.2 1 1
+test/service/userService/userService.go:14.58,18.2 1 1
+test/service/userService/userService.go:20.84,22.16 2 1
+test/service/userService/userService.go:22.16,25.3 2 1
+test/service/userService/userService.go:26.2,26.20 1 1
